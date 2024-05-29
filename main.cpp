@@ -70,27 +70,6 @@ wave create::get_from_audio(string path, int sampleNum) {
     return output;
 }
 
-// NIE DZIAŁA (nie wymagane)
-// działa bardzo źle przez implementację deklaracji linspace przez dewelopera matplotplusplus
-// jest na to kilka rozwiązań:
-// np. rozpatrywanie skali próbkowania obu sygnałów
-// to co mamy zrobić da się jednak zrobić bez tego
-/*
-wave operations::add_waves(wave source1, wave source2) {
-    wave output;
-    if(source1.length.back() >= source2.length.back()) {
-        output = source1;
-        std::transform(output.waveform.begin(), output.waveform.end(), source2.waveform.begin(), output.waveform.begin(), std::plus<double>());
-    } else {
-        output = source2;
-        std::transform(output.waveform.begin(), output.waveform.end(), source1.waveform.begin(), output.waveform.begin(), std::plus<double>());
-    }
-    return output;
-}
-*/
-
-// NIE POTRZEBNE
-// byłoby przydatne jakby funkcja wyżej (add_waves()) działała
 void operations::change_amplitude(wave *target, double new_amp) {
     double old_amp = 0;
     old_amp += *max_element(target->waveform.begin(), target->waveform.end());
